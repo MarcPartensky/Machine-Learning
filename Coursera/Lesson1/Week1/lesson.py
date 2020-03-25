@@ -41,6 +41,10 @@ dz/dx = dz/dy * dy/dx
 "dw" = dL/dw
 "db" = dL/db
 
+to resume:
+dL/dw = dL/da * da/dz * dz/dw
+dL/db = dl/da * da/dz * dz/db
+
 however we know that:
 dL/da = -y/a + (1-y)/(1-a)
 da/dz = a(1-a)
@@ -107,9 +111,7 @@ dw1/=m; dw2/=m; db/=m
 
 
 """Vectorization:
-Z = t_w * X + B
-
-Z = np.dot(w, X) + b
+Z = np.dot(w.T, X) + b
 A = sigmoid(Z)
 
 
@@ -118,7 +120,7 @@ Implement Logistic Regression
 Z = tw*X+b = np.dot(w.T,X) + b
 A = sigmoid(Z)
 dZ = A-Y
-dW = 1/m * X*dZ.T
+dW = 1/m * np.dot(X, dZ.T)
 dB = 1/m* np.sum(dZ)
 
 w -= alpha * dW
