@@ -1,10 +1,11 @@
 #! /usr/bin/env python
 
 from pyspark import SparkContext
+import sys
 
 sc = SparkContext()
 
-lines = sc.textFile("/Users/marcpartensky/Programs/Python/Machine-Learning/Openclassrooms/Big-Data/text.txt")
+lines = sc.textFile(sys.argv[1])
 
 word_counts = lines.flatMap(lambda line: line.split(' ')) \
         .map(lambda word: (word, 1)) \
