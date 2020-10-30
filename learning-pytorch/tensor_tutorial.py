@@ -26,9 +26,12 @@ import torch
 # z = x.view(-1, 8) # the size -1 is inferred from other dimensions
 # print(x.size(), y.size(), z.size())
 
-x = torch.randn(1)
-print(x)
-print(x.item())
+# x = torch.randn(1)
+# print(x)
+# print(x.item())
 
 a = torch.ones(5)
 print(a)
+
+b = a.numpy()
+print(b)
