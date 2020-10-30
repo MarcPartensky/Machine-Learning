@@ -31,7 +31,11 @@ import torch
 # print(x.item())
 
 a = torch.ones(5)
-print(a)
+# print(a)
 
 b = a.numpy()
+# print(b)
+
+a.add_(1)
+print(a)
 print(b)
